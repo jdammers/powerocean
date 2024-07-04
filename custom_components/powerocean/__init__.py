@@ -17,6 +17,7 @@ from .const import _LOGGER, DOMAIN, ISSUE_URL_ERROR_MESSAGE, STARTUP_MESSAGE
 
 from homeassistant.helpers.translation import async_get_translations
 from homeassistant.helpers import entity_registry
+from homeassistant.helpers import entity_registry as er
 
 _LOGGER.info(STARTUP_MESSAGE)
 
