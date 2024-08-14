@@ -2,21 +2,12 @@
 from __future__ import annotations
 
 from homeassistant.config_entries import ConfigEntry
-
-from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC
-
 from homeassistant.core import HomeAssistant
-
 from homeassistant.helpers import device_registry as dr
 
-from .const import DOMAIN, PLATFORMS
-
+from .const import DOMAIN, PLATFORMS, _LOGGER, DOMAIN, ISSUE_URL_ERROR_MESSAGE, STARTUP_MESSAGE
 from .ecoflow import ecoflow_api
 
-from .const import _LOGGER, DOMAIN, ISSUE_URL_ERROR_MESSAGE, STARTUP_MESSAGE
-
-from homeassistant.helpers.translation import async_get_translations
-from homeassistant.helpers import entity_registry
 
 _LOGGER.info(STARTUP_MESSAGE)
 

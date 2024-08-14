@@ -38,7 +38,7 @@ async def validate_input_for_device(hass: HomeAssistant, data: dict[str, Any]) -
         # Call the API with the detect_device method
         device = await hass.async_add_executor_job(ecoflow.detect_device)
 
-        # Additionally, check for authentication by calling fetch_data_km2
+        # Additionally, check for authentication by calling fetch_data
         auth_check = await hass.async_add_executor_job(ecoflow.fetch_data)
         if not auth_check:
             # If authentication check returns False, raise an authentication failure exception

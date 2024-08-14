@@ -4,12 +4,9 @@ from homeassistant.const import Platform
 
 DOMAIN = "powerocean"  # Have requested to add logos via https://github.com/home-assistant/brands/pull/4904
 NAME = "Ecoflow PowerOcean"
-# TODO: JD
-#VERSION = "2024.01.01"
-VERSION = "2024.08.01"
-ISSUE_URL = "https://github.com/evercape/powerocean/issues"
+VERSION = "2024.08.14"
+ISSUE_URL = "https://github.com/jdammers/powerocean/issues"
 ISSUE_URL_ERROR_MESSAGE = " Please log any issues here: " + ISSUE_URL
-
 
 PLATFORMS: list[Platform] = [Platform.SENSOR]
 
