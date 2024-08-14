@@ -70,9 +70,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         self.user_input_from_step_user = None
 
     # This is step 1 for the host/port/user/pass function.
-    async def async_step_user(
-        self, user_input: dict[str, Any] | None = None
-    ) -> FlowResult:
+    async def async_step_user(self, user_input: dict[str, Any] | None = None) -> FlowResult:
         """Handle the initial step."""
         errors: dict[str, str] = {}
         if user_input is not None:
@@ -157,13 +155,11 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         step_device_options_schema = vol.Schema(
             {
                 vol.Required("custom_device_name", default=default_device_name): str,
-                # TODO: JD
                 # vol.Required("polling_time", default=60): vol.All(
                 vol.Required("polling_time", default=5): vol.All(
                     vol.Coerce(int), vol.Clamp(min=60)
                 ),
                 vol.Required("group_sensors", default=True): bool,
-                # TODO: JD
                 #vol.Required("disable_sensors", default=False): bool,
                 vol.Required("disable_sensors", default=True): bool,
             }
@@ -198,9 +194,8 @@ def sanitize_device_name(device_name: str, fall_back: str, max_length=255) -> st
 
     # Length check
     if len(name) > max_length:
-        name = name[:max_length].rsplit(" ", 1)[
-            0
-        ]  # Split at the last space to avoid cutting off in the middle of a word
+        # Split at the last space to avoid cutting off in the middle of a word
+        name = name[:max_length].rsplit(" ", 1)[0]
 
     # Fallback name
     if not name:
