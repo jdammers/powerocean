@@ -11,13 +11,6 @@ from .const import _LOGGER, ISSUE_URL_ERROR_MESSAGE
 # from const import _LOGGER, ISSUE_URL_ERROR_MESSAGE
 
 
-# TODO: -----------------------------------------------------
-#    TESTING  - put credentials here
-# sn = 'HJ31ZDH4ZF730017'
-# username = 'j.dammers@web.de'
-# password = 'SK8#EcoFlow!'
-# TODO:  end of testing -------------------------------------
-
 
 
 
