@@ -6,7 +6,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
 
 from .const import DOMAIN, PLATFORMS, _LOGGER, DOMAIN, ISSUE_URL_ERROR_MESSAGE, STARTUP_MESSAGE
-from .ecoflow import ecoflow_api
+from .ecoflow import EcoflowApi
 
 
 _LOGGER.info(STARTUP_MESSAGE)
@@ -27,7 +27,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     device_info = entry.data.get("device_info")  # This device_info object was stored after the device
                                                  # was setup and has the name and serial needed etc.
     options = entry.data["options"]              # These are the options during setup, including custom device name
-    ecoflow = ecoflow_api(user_input["serialnumber"], user_input["username"], user_input["password"])
+    ecoflow = EcoflowApi(user_input["serialnumber"], user_input["username"], user_input["password"])
 
     if device_info:
         ecoflow.device = device_info   # Store the device information
@@ -81,6 +81,6 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     return unload_ok
 
-# JD: added
+
 async def update_listener(hass: HomeAssistant, entry: ConfigEntry) -> None:
     await hass.config_entries.async_reload(entry.entry_id)
